@@ -30,31 +30,35 @@ public class RequestMessage extends RequestReplyMessageBase {
      * Factory method creates a RequestMessage to return to the
      * Activity with information necessary to download an image.
      */
-    public static RequestMessage makeRequestMessage(int requestCode, 
+    public static RequestMessage makeRequestMessage(int requestCode,
                                                     Uri url,
                                                     Uri directoryPathname,
                                                     Messenger replyMessenger) {
         // Create a RequestMessage that holds a reference to a Message
         // created via the Message.obtain() factory method.
         RequestMessage requestMessage =
-            new RequestMessage(Message.obtain());
+                new RequestMessage(Message.obtain());
 
         // Set replyMessenger into the Message's replyTo field.
-        // TODO -- you fill in here.
+        // TODO #6 -- you fill in here.
+        requestMessage.setMessenger(replyMessenger);
 
         // Create a new Bundle and set it as the "data" for the
         // RequestMessage.
-        // TODO -- you fill in here.
+        // TODO #7 -- you fill in here.
+        requestMessage.setData(new Bundle());
 
         // Set the URL to the image file into the Bundle.
-        // TODO -- you fill in here.
+        // TODO #8 -- you fill in here.
+        requestMessage.setImageURL(url);
 
         // Set the pathname to the directory into the Bundle.
-        // TODO -- you fill in here.
+        // TODO #9 -- you fill in here.
+        requestMessage.setDirectoryPathname(directoryPathname);
 
         // Set the request code into the Bundle.
-        // TODO -- you fill in here.
-
+        // TODO #10 -- you fill in here.
+        requestMessage.setRequestCode(requestCode);
         // Return the message to the caller.
         return requestMessage;
     }
